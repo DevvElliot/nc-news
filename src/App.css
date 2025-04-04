@@ -25,3 +25,32 @@
 #articles-header {
     padding: 1%;
 }
+
+#article-card {
+    width: 50%;
+    padding: 2%;
+    margin: auto;
+}
+
+#article-card-title {
+    font-size: 2rem;
+}
+
+#article-card-header {
+    padding: 0px;
+}
+
+#article-card-img {
+    width: 80%;
+    margin: auto;
+    padding: 2%;
+}
+
+#article-card-text {
+    padding-top: 2%;
+}
+
+#navbar {
+    background-color: rgb(38, 43, 47);
+    margin-bottom: 1%;
+}

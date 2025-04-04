@@ -4,14 +4,11 @@ import Card from "react-bootstrap/Card";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
-import { useParams } from "react-router";
 
 function Articles() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-
-    console.log(useParams());
 
     useEffect(function () {
         axios
@@ -30,7 +27,7 @@ function Articles() {
         return (
             <>
                 <div id="articles-header">
-                    <h1>All Articles</h1>
+                    <h2>All Articles</h2>
                 </div>
 
                 <Spinner />
@@ -42,7 +39,7 @@ function Articles() {
         return (
             <>
                 <div id="articles-header">
-                    <h1>All Articles</h1>
+                    <h2>All Articles</h2>
                 </div>
 
                 <Alert id="article-alert-error" variant="danger">
@@ -55,7 +52,7 @@ function Articles() {
     return (
         <>
             <div id="articles-header">
-                <h1>All Articles</h1>
+                <h2>All Articles</h2>
             </div>
 
             <div id="articles-area">
@@ -66,6 +63,8 @@ function Articles() {
                     const displayedTopic = obj.topic.split("");
                     displayedTopic[0] = displayedTopic[0].toUpperCase();
 
+                    const articleLink = `articles/${obj.article_id}`;
+
                     return (
                         <Card style={{ width: "18rem" }}>
                             <Card.Header>{obj.title}</Card.Header>
@@ -74,7 +73,9 @@ function Articles() {
                                 <Card.Title>By {obj.author}</Card.Title>
                                 <Card.Text>{displayedTopic}</Card.Text>
                             </Card.Body>
-                            <Button id="article-btn">View Article</Button>
+                            <Button id="article-btn" href={articleLink}>
+                                View Article
+                            </Button>
                             <Card.Footer>{fixedDate}</Card.Footer>
                         </Card>
                     );
